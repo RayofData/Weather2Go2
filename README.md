@@ -1,19 +1,19 @@
-# Weather2Go2 🌦️🚗
+# Weather2Go2
 
-**Weather2Go2** is a data science portfolio project that estimates **driving risk for a planned trip** using real weather data and temporal features.
+**Weather2Go2** is a Python machine learning project that estimates **weather-related driving risk** for a planned trip in Michigan.
 
-The project is designed as a small end-to-end ML system
-(data → features → model → output) and is currently demonstrated through a **Streamlit web app**.
+This project is a revised version of my original [Weather2Go / SpartaHack 11 hackathon project](https://github.com/RayofData/Weather2Go_Spartahack11) The original demo proved the concept, but it tended to classify too many conditions as high risk. In this version, I improved the data strategy by using two sources:
 
-## What it does
+* [**Kaggle US Accidents data**](https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents) to learn patterns from hazardous driving conditions
+* [**Open-Meteo API weather data**](https://www.weather.gov/documentation/services-web-api) for 30 Michigan cities to represent normal and safer driving conditions
 
-### Given
+This helped improve accuracy and produce more realistic predictions instead of labeling nearly every situation as high risk.
 
-* Michigan city (demo scope)
-* Date and time (current or forecast)
-* Weather conditions pulled live from an API
+---
 
-### It outputs
+## What It Does
+
+Given a Michigan city, date, time, and live weather conditions, the app outputs:
 
 * A **5-level driving risk category**
 
@@ -22,55 +22,50 @@ The project is designed as a small end-to-end ML system
   * Moderate
   * Heavy
   * Severe
-* A readable weather summary (temperature, wind, precipitation, humidity)
-* Safety guidance aligned with the predicted risk level
+* A short weather summary
+* Safety guidance based on the predicted risk level
 
-The model focuses on **hazardous driving conditions**, not on predicting crashes or insurance outcomes.
+The model focuses on **weather-driven driving risk**, not crash prediction, insurance scoring, or individual driver behavior.
 
-## Scope
+---
 
-* **Geography:** Michigan only (demo)
+## Project Scope
+
+* **Geography:** Michigan only
+* **Cities:** 30 Michigan cities
+* **Model:** Random Forest classifier
 * **Interface:** Streamlit web app
 * **Purpose:** Data science portfolio project
-* **Focus:** Weather-driven risk, interpretability, and end-to-end workflow
 
-## Data
+---
 
-* Real crash data: Kaggle US Accidents (used for learning patterns)
-* Real weather data: Open-Meteo API (historical + forecast)
-
-All weather data is real.
-
-## Stack
+## Tech Stack
 
 * Python
-* pandas / numpy
-* scikit-learn (Random Forest)
+* pandas
+* NumPy
+* scikit-learn
+* Random Forest
 * Open-Meteo API
 * Streamlit
 
+---
+
 ## Current Status
 
-✅ **Functional demo complete**
+The project is a functional end-to-end demo.
 
-* The Streamlit app is working end-to-end
-* Live weather is fetched and transformed into model features
-* The model outputs a stable 5-level risk score
-* UI displays weather summaries and safety guidance
+The app:
 
-At this stage, the project is **feature-complete for its intended demo scope**.
+* Fetches live weather data
+* Converts weather data into model features
+* Predicts a 5-level driving risk score
+* Displays weather summaries and safety guidance
 
-Further expansion (for example: driver age, vehicle type, trip distance, road type) would require **higher-quality or more granular public data**, which has proven difficult to source reliably. As a result, future changes would be incremental refinements rather than major extensions.
+This version meets the intended portfolio goal and demonstrates data sourcing, feature engineering, supervised modeling, model evaluation, deployment, and user-facing interpretation.
 
-Overall, the project meets its portfolio goal and demonstrates:
-
-* data sourcing and cleaning
-* feature engineering
-* supervised modeling
-* model deployment
-* user-facing interpretation
+---
 
 ## Disclaimer
 
-This project is for **educational and demonstration purposes only**.
-It does not provide real-world driving, safety, or insurance advice.
+This project is for **educational and demonstration purposes only**. It does not provide real-world driving, safety, legal, or insurance advice.
